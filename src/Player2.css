@@ -1,0 +1,9 @@
+.Player2{
+    height: 3vh;
+    width: 15vw;
+    position: absolute;
+    top: 1vh;
+    left: 42.5vw;
+    background-color: red;
+    border-radius: 40px;
+  }

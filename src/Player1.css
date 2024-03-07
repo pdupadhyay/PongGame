@@ -1,0 +1,8 @@
+.Player1{
+    height: 3vh;
+    width: 15vw;
+    position: absolute;
+    top: 96vh;
+    background-color: green;
+    border-radius: 40px;
+  }

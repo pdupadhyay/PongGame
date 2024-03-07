@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Ball from './Ball';
+import Player1 from './Player1';
+import Player2 from './Player2';
 
 function App() {
+  const [playing, setPlaying] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Game-Screen'>
+        {playing ? (
+          <>
+            <Ball playing={playing}></Ball>
+            <Player1></Player1>
+            <Player2></Player2>
+            <div className='Midline'></div>
+          </>
+        ) : (
+          <>
+            <h1 className='Title'>Pong Game</h1>
+            <div className='Start-Button' onClick={() => setPlaying(true)}><span>Start</span></div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

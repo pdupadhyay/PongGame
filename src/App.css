@@ -2,37 +2,82 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Title {
+  font-size: 5vw;
   color: white;
+  margin: 0;
+  padding-top: 10%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.App-link {
-  color: #61dafb;
+.Game-Screen{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Midline{
+  top: 50vh;
+  background-color: white;
+  height: 0.5vh;
+  width: 100vw;
+  position: absolute;
+}
+
+.Start-Button {
+  color: #FFF;
+  transition: all 0.5s;
+  height: 10vw;
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Start-Button span {
+  z-index: 2; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  font-family: 'Courier New', Courier, monospace;
+}
+.Start-Button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+}
+.Start-Button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+}
+.Start-Button:hover::before {
+  transform: rotate(-45deg);
+  background-color: rgba(255,255,255,0);
+}
+.Start-Button:hover::after {
+  transform: rotate(45deg);
+  background-color: rgba(255,255,255,0);
 }
