@@ -21,7 +21,6 @@ function App() {
       setPlaying(false);
       setLevelChosen(false);
       setGameOver(true);
-      setScore({player1: 0, player2: 0});
     }
   }, [score, gameOver]);
 
@@ -65,10 +64,13 @@ function App() {
           <>
             {gameOver ? 
             (<>
-              <div className='GameOver'>Game Over</div>
+              <div className='GameOver'>
+                {score.player1 === 10 ? <div className='Winner'>Player 1 Wins</div> : <div className='Winner'>CPU Wins</div>}
+              </div>
               <div className='Start-Button' onClick={() => setLevelChosen(true)}><span>Restart</span></div>
             </> ) : <div className='Start-Button' onClick={() => setLevelChosen(true)}><span>Start</span></div>}
               (<>
+                {() => setScore({player1: 0, player2: 0})}
                 <h1 className='Title'>Pong Game</h1>
               </>)
           </>
