@@ -17,7 +17,7 @@ function App() {
   } 
 
   useEffect(() => {
-    if (score.player1 === 1 || score.player2 === 1) {
+    if (score.player1 === 10 || score.player2 === 10) {
       setPlaying(false);
       setLevelChosen(false);
       setGameOver(true);
