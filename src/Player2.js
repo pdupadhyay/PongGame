@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
 import './Player2.css';
-function Player2(){
-    const initialPlayer1 = {x: 42.5, speedx: 1};
-    const [currentPosition, setCurrentPosition] = useState(initialPlayer1);
+function Player2({level}){
+    const initialPlayer2 = {x: 42.5, speedx: level};
+    const [currentPosition, setCurrentPosition] = useState(initialPlayer2);
 
     useEffect(() => {
         const moveCPU = () => {
             if(document.getElementById('Ball').offsetLeft < document.getElementById('Player2').offsetLeft){
                 setCurrentPosition(prevPosition => (
                     {
-                    ...prevPosition, x: prevPosition.x > 2 ? prevPosition.x - 2 : prevPosition.x
+                    ...prevPosition, x: prevPosition.x > 2 ? prevPosition.x - initialPlayer2.speedx : prevPosition.x
                 }));
             }
             if(document.getElementById('Ball').offsetLeft + document.getElementById('Ball').offsetWidth > document.getElementById('Player2').offsetLeft + document.getElementById('Player2').offsetWidth){
                 setCurrentPosition(prevPosition => ({
-                    ...prevPosition, x: prevPosition.x < 84 ? prevPosition.x + 2 : prevPosition.x
+                    ...prevPosition, x: prevPosition.x < 84 ? prevPosition.x + initialPlayer2.speedx : prevPosition.x
                 }));
             }
         };
 
-        const intervalId = setInterval(moveCPU, 50); 
+        const intervalId = setInterval(moveCPU, 0.0001); 
 
         return () => {
             clearInterval(intervalId);

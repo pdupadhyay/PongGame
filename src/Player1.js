@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './Player1.css';
 
-function Player1(){
-    const initialPlayer1 = {x: 42.5, speedx: 1};
+function Player1() {
+    const initialPlayer1 = { x: 42.5 };
     const [currentPosition, setCurrentPosition] = useState(initialPlayer1);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
-            if(event.key === 'ArrowLeft'){
+            if (event.key === 'ArrowLeft') {
                 setCurrentPosition(prevPosition => (
                     {
-                    ...prevPosition, x: prevPosition.x > 2 ? prevPosition.x - 2 : prevPosition.x
-                }));
+                        ...prevPosition, x: prevPosition.x > 1 ? prevPosition.x - 1 : prevPosition.x
+                    }));
             }
-            if(event.key === 'ArrowRight'){
+            if (event.key === 'ArrowRight') {
                 setCurrentPosition(prevPosition => ({
-                    ...prevPosition, x: prevPosition.x < 84 ? prevPosition.x + 2 : prevPosition.x
+                    ...prevPosition, x: prevPosition.x < 84 ? prevPosition.x + 1 : prevPosition.x
                 }));
             }
         };
@@ -27,8 +27,8 @@ function Player1(){
         };
     }, []);
 
-    return(
-        <div id='Player1' className='Player1' style={{left: currentPosition.x + 'vw'}}></div>
+    return (
+        <div id='Player1' className='Player1' style={{ left: currentPosition.x + 'vw' }}></div>
     )
 }
 
